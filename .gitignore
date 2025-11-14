@@ -1,0 +1,27 @@
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+
+# Optional: Ignore large image files if using version control
+# Uncomment if you want to exclude images from git
+# assets/images/**/*.jpg
+# assets/images/**/*.png
+# assets/images/**/*.jpeg
+# assets/images/**/*.gif
+# assets/images/**/*.webp
