@@ -1,0 +1,261 @@
+/* ============================================
+   City Voting Page Styles
+   ============================================ */
+
+.city-search {
+    min-height: calc(100vh - 200px);
+    padding: 120px 0 80px;
+    background: var(--color-bg-dark);
+}
+
+.city-voting-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.city-voting-header h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.city-voting-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.input-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--color-bg-card);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.search-form {
+    margin-bottom: 2rem;
+}
+
+.search-form label {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 1rem;
+    align-items: stretch;
+}
+
+#city-input {
+    flex: 1;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    color: var(--color-text-primary);
+    background: var(--color-bg-surface);
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#city-input:focus {
+    border-color: var(--color-orange);
+    box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.1);
+}
+
+#city-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#submit-btn {
+    padding: 1rem 2rem;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+#submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
+}
+
+#submit-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+#submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Status Messages */
+#status-messages {
+    margin-bottom: 1.5rem;
+}
+
+.status {
+    padding: 0.75rem 1rem;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+}
+
+.status:last-child {
+    margin-bottom: 0;
+}
+
+.status.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: #fca5a5;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.status.success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #6ee7b7;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status.muted {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
+
+/* Suggestions List */
+.suggestions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px;
+    overflow-y: auto;
+    border-radius: 8px;
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+}
+
+.suggestions::-webkit-scrollbar {
+    width: 8px;
+}
+
+.suggestions::-webkit-scrollbar-track {
+    background: var(--color-bg-dark);
+    border-radius: 4px;
+}
+
+.suggestions::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 4px;
+}
+
+.suggestions::-webkit-scrollbar-thumb:hover {
+    background: var(--color-orange);
+}
+
+.suggestions li {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.suggestions li:last-child {
+    border-bottom: none;
+}
+
+.suggestion {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    text-align: left;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    transition: all 0.2s ease;
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
+}
+
+.suggestion:hover {
+    background: var(--color-bg-hover);
+}
+
+.suggestion.active {
+    background: rgba(255, 152, 0, 0.15);
+    border-left: 3px solid var(--color-orange);
+}
+
+.suggestion span:first-child {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-text-primary);
+}
+
+.suggestion .meta {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .city-search {
+        padding: 100px 0 60px;
+    }
+
+    .input-section {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+
+    .input-wrapper {
+        flex-direction: column;
+    }
+
+    #submit-btn {
+        width: 100%;
+    }
+
+    .suggestions {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .city-voting-header h1 {
+        font-size: 2rem;
+    }
+
+    .city-voting-subtitle {
+        font-size: 1rem;
+    }
+
+    .input-section {
+        padding: 1.25rem;
+    }
+}
+

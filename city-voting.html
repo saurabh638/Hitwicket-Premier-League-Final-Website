@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vote for your city in Hitwicket Premier League 2025">
+    <title>City Voting - Hitwicket Premier League 2025</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/city-voting.css">
+</head>
+
+<body>
+    <!-- Navigation Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/images/Hitwicket Premier League Logo.png"
+                                alt="Hitwicket Premier League Logo" class="logo-img">
+                        </a>
+                    </div>
+
+                    <ul class="nav-menu" id="navMenu">
+                        <li class="nav-item">
+                            <a href="index.html#home" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html#timeline" class="nav-link">Timeline</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="city-voting.html" class="nav-link active">City Voting</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html#franchises" class="nav-link">Franchises</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html#faqs" class="nav-link">FAQs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://discord.gg/hitwicket" class="nav-link" target="_blank">Discord</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav-actions">
+                        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- City Voting Section -->
+    <main class="city-search">
+        <div class="container">
+            <header class="city-voting-header">
+                <h1>CITY VOTING</h1>
+                <p class="city-voting-subtitle">Select your city to vote for in Hitwicket Premier League 2025</p>
+            </header>
+
+            <section class="input-section">
+                <form id="city-voting-form" class="search-form">
+                    <label htmlFor="city-input">City</label>
+                    <div class="input-wrapper">
+                        <input id="city-input" type="text" autocomplete="off" placeholder="Type to search for a city..."
+                            disabled />
+                        <button type="submit" id="submit-btn" disabled>
+                            Submit
+                        </button>
+                    </div>
+                </form>
+
+                <div id="status-messages">
+                    <p id="validating-token-status" class="status" style="display: none;">Validating token…</p>
+                    <p id="loading-status" class="status" style="display: none;">Loading cities…</p>
+                    <p id="error-status" class="status error" style="display: none;"></p>
+                    <p id="no-matches-status" class="status muted" style="display: none;"></p>
+                    <p id="select-city-status" class="status muted" style="display: none;">Please select a city from the
+                        suggestions below to continue.</p>
+                    <p id="submission-status" class="status" style="display: none;"></p>
+                </div>
+
+                <ul id="suggestions-list" class="suggestions" role="listbox" style="display: none;"></ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-widget">
+                    <div class="footer-logo">
+                        <img src="assets/images/Hitwicket Premier League Logo.png" alt="Hitwicket Premier League Logo"
+                            loading="lazy">
+                    </div>
+                    <p class="footer-tagline">Where Strategy Meets Glory</p>
+                </div>
+
+                <div class="footer-widget">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#about">About Event</a></li>
+                        <li><a href="index.html#timeline">Timeline</a></li>
+                        <li><a href="city-voting.html">City Voting</a></li>
+                        <li><a href="index.html#faqs">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hitwicket. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <!-- Configure API Base URL - Update this with your backend API URL -->
+    <script>
+        // Set your API base URL here (e.g., 'https://api.example.com' or 'http://localhost:3000')
+        // Leave empty string if API is on the same domain
+        window.API_BASE_URL = 'http://localhost:6363/HPL'; // Update this with your actual API URL
+    </script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/city-voting.js"></script>
+</body>
+
+</html>
