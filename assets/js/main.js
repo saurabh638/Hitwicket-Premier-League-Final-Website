@@ -60,7 +60,10 @@
         const minutesEl = $('#minutes');
         const secondsEl = $('#seconds');
 
-        if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+        if (!daysEl || !hoursEl || !minutesEl || !secondsEl) {
+            console.warn('Countdown elements not found');
+            return;
+        }
 
         const calculateTimeRemaining = () => {
             const now = new Date().getTime();
@@ -182,6 +185,7 @@
     const updateActiveNavLink = () => {
         const sections = $$('section[id]');
         const navLinks = $$('.nav-link');
+        const bottomNavItems = $$('.bottom-nav-item');
 
         const handleScroll = throttle(() => {
             let current = '';
@@ -195,11 +199,27 @@
                 }
             });
 
+            // Update main nav links
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 const href = link.getAttribute('href');
                 if (href === `#${current}`) {
                     link.classList.add('active');
+                }
+            });
+
+            // Update bottom nav items
+            bottomNavItems.forEach(item => {
+                item.classList.remove('active');
+                const href = item.getAttribute('href');
+                
+                // Handle home section (id="home" or at top of page)
+                if (href === '#home') {
+                    if (current === 'home' || current === '' || window.scrollY < 300) {
+                        item.classList.add('active');
+                    }
+                } else if (href === `#${current}`) {
+                    item.classList.add('active');
                 }
             });
         }, 100);

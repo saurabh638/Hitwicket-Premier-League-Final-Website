@@ -34,23 +34,28 @@
                     </div>
                     
                     <ul class="nav-menu" id="navMenu">
+                        <li class="nav-logo-mobile">
+                            <a href="index.html">
+                                <img src="assets/images/Hitwicket Premier League Logo.png" alt="Hitwicket Premier League Logo" class="logo-img">
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="#home" class="nav-link active">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#city-voting" class="nav-link">Live Action</a>
                         </li>
                         <li class="nav-item">
                             <a href="#timeline" class="nav-link">Timeline</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#city-voting" class="nav-link">City Voting</a>
-                        </li>
-                        <li class="nav-item">
                             <a href="#franchises" class="nav-link">Franchises</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#faqs" class="nav-link">FAQs</a>
+                            <a href="#community" class="nav-link">Community</a>
                         </li>
                         <li class="nav-item">
-                            <a href="https://discord.gg/hitwicket" class="nav-link" target="_blank">Discord</a>
+                            <a href="#faqs" class="nav-link">FAQs</a>
                         </li>
                     </ul>
                     
@@ -109,81 +114,85 @@
     <!-- Currently Live Section -->
     <section class="currently-live section" id="city-voting">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="title-accent">Currently Live</span>
-                </h2>
-            </div>
-            
-            <div class="live-phase-card">
-                <div class="phase-badge live-badge">
-                    <i class="fas fa-circle pulse-dot"></i>
-                    <span>LIVE NOW</span>
+            <div class="live-two-row-banner">
+                <!-- Row 1: Main Info -->
+                <div class="banner-row-main">
+                    <div class="live-indicator">
+                        <i class="fas fa-circle pulse-dot"></i>
+                        <span>LIVE NOW</span>
+                    </div>
+                    
+                    <div class="phase-title-row">
+                        <div class="phase-icon-small">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="phase-info-inline">
+                            <h3 class="phase-title-inline">City Voting & Selection</h3>
+                            <p class="phase-date-inline">November 14-17, 2025</p>
+                        </div>
+                    </div>
+                    
+                    <div class="countdown-inline" id="countdown">
+                        <div class="countdown-unit-inline">
+                            <span class="countdown-num-inline" id="days">00</span>
+                            <span class="countdown-lbl-inline">D</span>
+                        </div>
+                        <span class="countdown-sep-inline">:</span>
+                        <div class="countdown-unit-inline">
+                            <span class="countdown-num-inline" id="hours">00</span>
+                            <span class="countdown-lbl-inline">H</span>
+                        </div>
+                        <span class="countdown-sep-inline">:</span>
+                        <div class="countdown-unit-inline">
+                            <span class="countdown-num-inline" id="minutes">00</span>
+                            <span class="countdown-lbl-inline">M</span>
+                        </div>
+                        <span class="countdown-sep-inline">:</span>
+                        <div class="countdown-unit-inline">
+                            <span class="countdown-num-inline" id="seconds">00</span>
+                            <span class="countdown-lbl-inline">S</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn-vote-inline">
+                        <span>Vote Now</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 
-                <div class="phase-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-                
-                <h3 class="phase-title">City Voting & Selection</h3>
-                
-                <div class="phase-countdown">
-                    <div class="countdown-label">Voting Ends In:</div>
-                    <div class="countdown-timer" id="countdown">
-                        <div class="countdown-unit">
-                            <span class="countdown-number" id="days">00</span>
-                            <span class="countdown-label-small">Days</span>
+                <!-- Row 2: Description & Stats (50-50 split) -->
+                <div class="banner-row-content">
+                    <div class="content-description">
+                        <h4 class="description-heading">About City Voting & Selection</h4>
+                        <p class="description-text">
+                            Vote for your favorite city to represent in HPL 2025. The top 10 cities with maximum votes will compete in the tournament.
+                        </p>
+                    </div>
+                    
+                    <div class="content-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon-circle"><i class="fas fa-vote-yea"></i></div>
+                            <div class="stat-data">
+                                <div class="stat-value">125K+</div>
+                                <div class="stat-label">Total Votes</div>
+                            </div>
                         </div>
-                        <span class="countdown-separator">:</span>
-                        <div class="countdown-unit">
-                            <span class="countdown-number" id="hours">00</span>
-                            <span class="countdown-label-small">Hours</span>
+                        <div class="stat-item">
+                            <div class="stat-icon-circle"><i class="fas fa-city"></i></div>
+                            <div class="stat-data">
+                                <div class="stat-value">45</div>
+                                <div class="stat-label">Cities</div>
+                            </div>
                         </div>
-                        <span class="countdown-separator">:</span>
-                        <div class="countdown-unit">
-                            <span class="countdown-number" id="minutes">00</span>
-                            <span class="countdown-label-small">Mins</span>
-                        </div>
-                        <span class="countdown-separator">:</span>
-                        <div class="countdown-unit">
-                            <span class="countdown-number" id="seconds">00</span>
-                            <span class="countdown-label-small">Secs</span>
+                        <div class="stat-item">
+                            <div class="stat-icon-circle"><i class="fas fa-users"></i></div>
+                            <div class="stat-data">
+                                <div class="stat-value">98K+</div>
+                                <div class="stat-label">Participants</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <p class="phase-description">
-                    Vote for your favorite city to represent in the tournament. The top 10 cities with maximum votes will compete in HPL 2025.
-                </p>
-                
-                <div class="phase-stats">
-                    <div class="stat-box">
-                        <div class="stat-icon"><i class="fas fa-vote-yea"></i></div>
-                        <div class="stat-info">
-                            <div class="stat-value">125,000+</div>
-                            <div class="stat-label">Total Votes</div>
-                        </div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-icon"><i class="fas fa-city"></i></div>
-                        <div class="stat-info">
-                            <div class="stat-value">45</div>
-                            <div class="stat-label">Cities Nominated</div>
-                        </div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-icon"><i class="fas fa-users"></i></div>
-                        <div class="stat-info">
-                            <div class="stat-value">98,000+</div>
-                            <div class="stat-label">Users Voted</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <a href="#" class="btn btn-primary btn-large phase-cta">
-                    <span>Go to Voting Page</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
             </div>
         </div>
     </section>
@@ -191,72 +200,60 @@
     <!-- About Event Section -->
     <section class="about-event section" id="about">
         <div class="container">
-            <div class="about-wrapper">
-                <div class="about-content">
-                    <h2 class="section-title">What is Hitwicket Premier League?</h2>
-                    <div class="title-underline"></div>
-                    
-                    <p class="about-text">
-                        Hitwicket Premier League (HPL) 2025 is a massive community-driven esports cricket tournament 
-                        where players vote for cities, elect head coaches, participate in live player auctions, and compete 
-                        in tournament matches. It's the ultimate cricket gaming experience combining strategy, community 
-                        engagement, and competitive gameplay.
-                    </p>
-                    
-                    <p class="about-text">
-                        Experience the thrill of building a franchise from the ground up. From selecting your city to 
-                        watching live auctions and cheering for your team in the grand finale, HPL brings the excitement 
-                        of IPL-style cricket to the gaming world.
-                    </p>
-                    
-                    <div class="highlights-grid">
-                        <div class="highlight-card">
-                            <div class="highlight-icon">
-                                <i class="fas fa-building"></i>
-                            </div>
-                            <h4 class="highlight-title">10 Cities Compete</h4>
-                            <p class="highlight-description">Choose your city and lead it to victory</p>
-                        </div>
-                        
-                        <div class="highlight-card">
-                            <div class="highlight-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <h4 class="highlight-title">You Decide</h4>
-                            <p class="highlight-description">Vote for cities, coaches, and strategies</p>
-                        </div>
-                        
-                        <div class="highlight-card">
-                            <div class="highlight-icon">
-                                <i class="fas fa-gavel"></i>
-                            </div>
-                            <h4 class="highlight-title">IPL-Style Auctions</h4>
-                            <p class="highlight-description">Franchises bid for top players</p>
-                        </div>
-                        
-                        <div class="highlight-card">
-                            <div class="highlight-icon">
-                                <i class="fas fa-trophy"></i>
-                            </div>
-                            <h4 class="highlight-title">Epic Rewards</h4>
-                            <p class="highlight-description">Win exclusive prizes and recognition</p>
-                        </div>
-                    </div>
+            <div class="about-wrapper-redesigned">
+                <!-- Left Section: Image Only -->
+                <div class="about-visual-area">
+                    <img src="assets/images/HPL Banner.jpg" alt="Hitwicket Premier League" class="about-main-image" loading="lazy">
                 </div>
                 
-                <div class="about-visual">
-                    <div class="stats-visual">
-                        <div class="stat-visual-item">
-                            <div class="stat-number-large">10</div>
-                            <div class="stat-label-large">Cities</div>
+                <!-- Right Section: Content -->
+                <div class="about-content-redesigned">
+                    <div class="about-header">
+                        <div class="about-title-row">
+                            <img src="assets/images/Hitwicket Premier League Logo.png" alt="HPL Logo" class="about-logo-inline" loading="lazy">
+                            <h2 class="about-main-title">What is Hitwicket Premier League?</h2>
                         </div>
-                        <div class="stat-visual-item">
-                            <div class="stat-number-large">100+</div>
-                            <div class="stat-label-large">Players</div>
+                    </div>
+                    
+                    <div class="about-description">
+                        <p class="about-text">
+                            Hitwicket Premier League (HPL) 2025 is a massive community-driven esports cricket tournament 
+                            where players vote for cities, elect head coaches, participate in live player auctions, and compete 
+                            in tournament matches. Experience the thrill of building a franchise from the ground up. From selecting 
+                            your city to watching live auctions and cheering for your team in the grand finale, HPL brings the 
+                            excitement of IPL-style cricket to the gaming world.
+                        </p>
+                    </div>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon-hex green">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4 class="feature-title">10 Cities Compete</h4>
+                                <p class="feature-description">Choose your city and lead it to victory</p>
+                            </div>
                         </div>
-                        <div class="stat-visual-item">
-                            <div class="stat-number-large">1M+</div>
-                            <div class="stat-label-large">Prize Pool</div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon-hex yellow">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4 class="feature-title">You Decide</h4>
+                                <p class="feature-description">Vote for cities, coaches, and strategies</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon-hex purple">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4 class="feature-title">IPL-Style Auctions</h4>
+                                <p class="feature-description">Franchises bid for top players</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -264,8 +261,8 @@
         </div>
     </section>
 
-    <!-- Event Modules/Timeline Section -->
-    <section class="event-modules section" id="timeline">
+    <!-- Event Journey Timeline Section -->
+    <section class="event-journey section" id="timeline">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">
@@ -274,113 +271,152 @@
                 <p class="section-subtitle">Follow the complete tournament lifecycle</p>
             </div>
             
-            <div class="modules-grid">
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
                 <!-- Phase 1: City Selection -->
-                <div class="module-card active">
-                    <div class="module-status-badge active-badge">Current Phase</div>
-                    <div class="module-icon">
-                        <i class="fas fa-city"></i>
+                <div class="timeline-item active">
+                    <div class="timeline-marker active-marker">
+                        <div class="marker-pulse"></div>
+                        <div class="marker-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
                     </div>
-                    <div class="module-date">Nov 14-17</div>
-                    <h3 class="module-title">Choose Your City</h3>
-                    <p class="module-description">Vote for your favorite city to compete</p>
-                    <a href="#city-voting" class="module-cta">Vote Now</a>
+                    <div class="timeline-content">
+                        <div class="timeline-badge active-badge">LIVE NOW</div>
+                        <div class="timeline-date">Nov 14-17, 2025</div>
+                        <h3 class="timeline-title">City Voting & Selection</h3>
+                        <p class="timeline-description">Vote for your favorite city to compete in HPL 2025</p>
+                        <a href="#city-voting" class="timeline-cta">Vote Now</a>
+                    </div>
                 </div>
                 
                 <!-- Phase 2: Head Coach Nominations -->
-                <div class="module-card upcoming">
-                    <div class="module-status-badge upcoming-badge">Upcoming</div>
-                    <div class="module-icon">
-                        <i class="fas fa-user-tie"></i>
+                <div class="timeline-item upcoming">
+                    <div class="timeline-marker upcoming-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
                     </div>
-                    <div class="module-date">Nov 19-21</div>
-                    <h3 class="module-title">Nominate Your Coach</h3>
-                    <p class="module-description">Apply to lead your city's franchise</p>
-                    <a href="#" class="module-cta">Learn More</a>
+                    <div class="timeline-content">
+                        <div class="timeline-badge upcoming-badge">Upcoming</div>
+                        <div class="timeline-date">Nov 19-21, 2025</div>
+                        <h3 class="timeline-title">Head Coach Nominations</h3>
+                        <p class="timeline-description">Apply to lead your city's franchise as head coach</p>
+                        <a href="#" class="timeline-cta">Learn More</a>
+                    </div>
                 </div>
                 
                 <!-- Phase 3: Coach Elections -->
-                <div class="module-card upcoming">
-                    <div class="module-status-badge upcoming-badge">Upcoming</div>
-                    <div class="module-icon">
-                        <i class="fas fa-vote-yea"></i>
+                <div class="timeline-item upcoming">
+                    <div class="timeline-marker upcoming-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-vote-yea"></i>
+                        </div>
                     </div>
-                    <div class="module-date">Nov 23-26</div>
-                    <h3 class="module-title">Elect Head Coaches</h3>
-                    <p class="module-description">Vote for who leads your city's team</p>
-                    <a href="#" class="module-cta">View Candidates</a>
+                    <div class="timeline-content">
+                        <div class="timeline-badge upcoming-badge">Upcoming</div>
+                        <div class="timeline-date">Nov 23-26, 2025</div>
+                        <h3 class="timeline-title">Head Coach Elections</h3>
+                        <p class="timeline-description">Vote for who will lead your city's franchise</p>
+                        <a href="#" class="timeline-cta">View Candidates</a>
+                    </div>
                 </div>
                 
                 <!-- Phase 4: Franchise Setup -->
-                <div class="module-card upcoming">
-                    <div class="module-status-badge upcoming-badge">Upcoming</div>
-                    <div class="module-icon">
-                        <i class="fas fa-users"></i>
+                <div class="timeline-item upcoming">
+                    <div class="timeline-marker upcoming-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
                     </div>
-                    <div class="module-date">Nov 28 - Dec 4</div>
-                    <h3 class="module-title">Build Your Franchise</h3>
-                    <p class="module-description">Coaches assemble teams and create identity</p>
-                    <a href="#" class="module-cta">View Details</a>
+                    <div class="timeline-content">
+                        <div class="timeline-badge upcoming-badge">Upcoming</div>
+                        <div class="timeline-date">Nov 28 - Dec 4, 2025</div>
+                        <h3 class="timeline-title">Franchise Setup</h3>
+                        <p class="timeline-description">Coaches assemble teams and create franchise identity</p>
+                        <a href="#" class="timeline-cta">View Details</a>
+                    </div>
                 </div>
                 
                 <!-- Phase 5: Player Nominations -->
-                <div class="module-card upcoming">
-                    <div class="module-status-badge upcoming-badge">Upcoming</div>
-                    <div class="module-icon">
-                        <i class="fas fa-user-plus"></i>
+                <div class="timeline-item upcoming">
+                    <div class="timeline-marker upcoming-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
                     </div>
-                    <div class="module-date">Nov 30 - Dec 3</div>
-                    <h3 class="module-title">Nominate Players</h3>
-                    <p class="module-description">Select your best players for auction</p>
-                    <a href="#" class="module-cta">Nominate</a>
+                    <div class="timeline-content">
+                        <div class="timeline-badge upcoming-badge">Upcoming</div>
+                        <div class="timeline-date">Nov 30 - Dec 3, 2025</div>
+                        <h3 class="timeline-title">Player Nominations</h3>
+                        <p class="timeline-description">Nominate your best players for the live auction</p>
+                        <a href="#" class="timeline-cta">Nominate</a>
+                    </div>
                 </div>
                 
                 <!-- Phase 6: Live Auction -->
-                <div class="module-card upcoming">
-                    <div class="module-status-badge upcoming-badge">Upcoming</div>
-                    <div class="module-icon">
-                        <i class="fas fa-gavel"></i>
+                <div class="timeline-item upcoming">
+                    <div class="timeline-marker upcoming-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
                     </div>
-                    <div class="module-date">Dec 6-7</div>
-                    <h3 class="module-title">Player Auction</h3>
-                    <p class="module-description">Franchises bid for top players (IPL-style)</p>
-                    <a href="#" class="module-cta">View Rules</a>
+                    <div class="timeline-content">
+                        <div class="timeline-badge upcoming-badge">Upcoming</div>
+                        <div class="timeline-date">Dec 6-7, 2025</div>
+                        <h3 class="timeline-title">Live Player Auction</h3>
+                        <p class="timeline-description">Franchises bid for top players (IPL-style auction)</p>
+                        <a href="#" class="timeline-cta">View Rules</a>
+                    </div>
                 </div>
                 
                 <!-- Phase 7: Fixture Reveal -->
-                <div class="module-card tbd">
-                    <div class="module-status-badge tbd-badge">TBD</div>
-                    <div class="module-icon">
-                        <i class="fas fa-calendar-alt"></i>
+                <div class="timeline-item tbd">
+                    <div class="timeline-marker tbd-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
                     </div>
-                    <div class="module-date">TBD</div>
-                    <h3 class="module-title">Group Stage Draw</h3>
-                    <p class="module-description">Tournament groups announced</p>
-                    <a href="#" class="module-cta">Set Reminder</a>
+                    <div class="timeline-content">
+                        <div class="timeline-badge tbd-badge">TBD</div>
+                        <div class="timeline-date">TBD</div>
+                        <h3 class="timeline-title">Group Stage Draw</h3>
+                        <p class="timeline-description">Tournament groups announced via live group draw</p>
+                        <a href="#" class="timeline-cta">Set Reminder</a>
+                    </div>
                 </div>
                 
                 <!-- Phase 8: Tournament Matches -->
-                <div class="module-card tbd">
-                    <div class="module-status-badge tbd-badge">TBD</div>
-                    <div class="module-icon">
-                        <i class="fas fa-trophy"></i>
+                <div class="timeline-item tbd">
+                    <div class="timeline-marker tbd-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
                     </div>
-                    <div class="module-date">TBD</div>
-                    <h3 class="module-title">Group Stage Matches</h3>
-                    <p class="module-description">Round-robin matches in group stages</p>
-                    <a href="#" class="module-cta">Schedule</a>
+                    <div class="timeline-content">
+                        <div class="timeline-badge tbd-badge">TBD</div>
+                        <div class="timeline-date">TBD</div>
+                        <h3 class="timeline-title">Group Stage Matches</h3>
+                        <p class="timeline-description">Round-robin matches in group stages</p>
+                        <a href="#" class="timeline-cta">Schedule</a>
+                    </div>
                 </div>
                 
                 <!-- Phase 9: Finals -->
-                <div class="module-card tbd">
-                    <div class="module-status-badge tbd-badge">TBD</div>
-                    <div class="module-icon">
-                        <i class="fas fa-fire"></i>
+                <div class="timeline-item tbd">
+                    <div class="timeline-marker tbd-marker final-marker">
+                        <div class="marker-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
                     </div>
-                    <div class="module-date">TBD</div>
-                    <h3 class="module-title">Semi-Finals & Grand Finale</h3>
-                    <p class="module-description">Knockout stages culminating in finals</p>
-                    <a href="#" class="module-cta">View Details</a>
+                    <div class="timeline-content">
+                        <div class="timeline-badge tbd-badge">TBD</div>
+                        <div class="timeline-date">TBD</div>
+                        <h3 class="timeline-title">Semi-Finals & Grand Finale</h3>
+                        <p class="timeline-description">Knockout stages culminating in grand finals</p>
+                        <a href="#" class="timeline-cta">View Details</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -427,48 +463,60 @@
                     <div class="social-icon">
                         <i class="fab fa-discord"></i>
                     </div>
-                    <div class="social-label">Join Discord</div>
-                    <div class="social-count">10K+ Members</div>
+                    <div class="social-content">
+                        <div class="social-label">Join Discord</div>
+                        <div class="social-count">10K+ Members</div>
+                    </div>
                 </a>
                 
                 <a href="https://instagram.com/hitwicket" class="social-card instagram" target="_blank" rel="noopener">
                     <div class="social-icon">
                         <i class="fab fa-instagram"></i>
                     </div>
-                    <div class="social-label">Follow on Instagram</div>
-                    <div class="social-count">50K+ Followers</div>
+                    <div class="social-content">
+                        <div class="social-label">Follow on Instagram</div>
+                        <div class="social-count">50K+ Followers</div>
+                    </div>
                 </a>
                 
                 <a href="https://www.youtube.com/@hitwicket" class="social-card youtube" target="_blank" rel="noopener">
                     <div class="social-icon">
                         <i class="fab fa-youtube"></i>
                     </div>
-                    <div class="social-label">Subscribe Channel</div>
-                    <div class="social-count">100K+ Subscribers</div>
+                    <div class="social-content">
+                        <div class="social-label">Subscribe Channel</div>
+                        <div class="social-count">100K+ Subscribers</div>
+                    </div>
                 </a>
                 
                 <a href="https://twitter.com/hitwicket" class="social-card twitter" target="_blank" rel="noopener">
                     <div class="social-icon">
                         <i class="fab fa-twitter"></i>
                     </div>
-                    <div class="social-label">Follow on Twitter</div>
-                    <div class="social-count">25K+ Followers</div>
+                    <div class="social-content">
+                        <div class="social-label">Follow on Twitter</div>
+                        <div class="social-count">25K+ Followers</div>
+                    </div>
                 </a>
                 
                 <a href="#" class="social-card whatsapp" target="_blank" rel="noopener">
                     <div class="social-icon">
                         <i class="fab fa-whatsapp"></i>
                     </div>
-                    <div class="social-label">Join WhatsApp</div>
-                    <div class="social-count">Community Group</div>
+                    <div class="social-content">
+                        <div class="social-label">Join WhatsApp</div>
+                        <div class="social-count">Community Group</div>
+                    </div>
                 </a>
                 
                 <a href="https://facebook.com/hitwicket" class="social-card facebook" target="_blank" rel="noopener">
                     <div class="social-icon">
                         <i class="fab fa-facebook-f"></i>
                     </div>
-                    <div class="social-label">Like Page</div>
-                    <div class="social-count">75K+ Likes</div>
+                    <div class="social-content">
+                        <div class="social-label">Like Page</div>
+                        <div class="social-count">75K+ Likes</div>
+                    </div>
                 </a>
             </div>
         </div>
@@ -642,6 +690,26 @@
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav">
+        <a href="#home" class="bottom-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#about" class="bottom-nav-item">
+            <i class="fas fa-info-circle"></i>
+            <span>About</span>
+        </a>
+        <a href="#timeline" class="bottom-nav-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Timeline</span>
+        </a>
+        <a href="#faqs" class="bottom-nav-item">
+            <i class="fas fa-question-circle"></i>
+            <span>FAQs</span>
+        </a>
+    </nav>
 
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
