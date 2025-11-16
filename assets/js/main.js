@@ -115,6 +115,63 @@
         const navLinks = $$('.nav-link');
         const backToTop = $('#backToTop');
 
+        // Handle hash fragment on page load (for cross-page navigation)
+        const handleHashOnLoad = () => {
+            const hash = window.location.hash;
+            if (hash) {
+                // Wait for page to be fully loaded and rendered
+                const scrollToHash = () => {
+                    const target = $(hash);
+                    if (target && header) {
+                        const headerHeight = header.offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        return true;
+                    }
+                    return false;
+                };
+
+                // Try immediately if DOM is ready
+                if (document.readyState === 'complete') {
+                    setTimeout(() => {
+                        if (!scrollToHash()) {
+                            // Retry after a longer delay if element not found
+                            setTimeout(scrollToHash, 300);
+                        }
+                    }, 100);
+                } else {
+                    // Wait for page to load
+                    window.addEventListener('load', () => {
+                        setTimeout(scrollToHash, 100);
+                    });
+                }
+            }
+        };
+
+        // Handle hash on initial load
+        handleHashOnLoad();
+
+        // Also handle hash changes (for same-page navigation)
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash;
+            if (hash) {
+                setTimeout(() => {
+                    const target = $(hash);
+                    if (target && header) {
+                        const headerHeight = header.offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 100);
+            }
+        });
+
         // Mobile menu toggle
         if (navToggle) {
             navToggle.addEventListener('click', () => {
@@ -133,18 +190,27 @@
                     document.body.style.overflow = '';
                 }
                 
-                // Smooth scroll for anchor links
+                // Handle cross-page navigation with hash fragments
                 const href = link.getAttribute('href');
-                if (href && href.startsWith('#')) {
-                    e.preventDefault();
-                    const target = $(href);
-                    if (target) {
-                        const headerHeight = header.offsetHeight;
-                        const targetPosition = target.offsetTop - headerHeight;
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
+                if (href && href.includes('#')) {
+                    // Check if it's a cross-page link (contains index.html or another page)
+                    if (href.includes('index.html#') || (href.includes('.html#') && !href.startsWith('#'))) {
+                        // Let the browser navigate normally, but ensure smooth scroll after load
+                        // The hash will be handled by handleHashOnLoad when the new page loads
+                        return; // Don't prevent default, let browser navigate
+                    }
+                    // Smooth scroll for same-page anchor links
+                    else if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const target = $(href);
+                        if (target) {
+                            const headerHeight = header.offsetHeight;
+                            const targetPosition = target.offsetTop - headerHeight;
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
                     }
                 }
             });
