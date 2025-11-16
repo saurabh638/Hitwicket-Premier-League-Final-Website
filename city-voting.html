@@ -40,19 +40,22 @@
                             <a href="index.html#home" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a href="index.html#about" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="index.html#timeline" class="nav-link">Timeline</a>
                         </li>
                         <li class="nav-item">
-                            <a href="city-voting.html" class="nav-link active">City Voting</a>
+                            <a href="city-voting.html" class="nav-link active">Live Action</a>
                         </li>
                         <li class="nav-item">
                             <a href="index.html#franchises" class="nav-link">Franchises</a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.html#faqs" class="nav-link">FAQs</a>
+                            <a href="index.html#community" class="nav-link">Community</a>
                         </li>
                         <li class="nav-item">
-                            <a href="https://discord.gg/hitwicket" class="nav-link" target="_blank">Discord</a>
+                            <a href="index.html#faqs" class="nav-link">FAQs</a>
                         </li>
                     </ul>
 
@@ -72,11 +75,40 @@
     <main class="city-search">
         <div class="container">
             <header class="city-voting-header">
-                <h1>CITY VOTING</h1>
+                <h1>City Voting & Selection</h1>
                 <p class="city-voting-subtitle">Select your city to vote for in Hitwicket Premier League 2025</p>
             </header>
 
-            <section class="input-section">
+            <!-- Countdown Timer Section -->
+            <div class="voting-countdown-section" id="votingCountdownSection">
+                <div class="countdown-status" id="countdownStatus">
+                    <i class="fas fa-clock"></i>
+                    <span id="countdownStatusText">Voting starts in:</span>
+                </div>
+                <div class="countdown-timer" id="votingCountdown">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="countdown-days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="countdown-hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="countdown-minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="countdown-seconds">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="input-section" id="inputSection">
                 <form id="city-voting-form" class="search-form">
                     <label htmlFor="city-input">City</label>
                     <div class="input-wrapper">
@@ -115,6 +147,7 @@
                     <p class="footer-tagline">Where Strategy Meets Glory</p>
                 </div>
 
+                <!-- Column 2: Quick Links -->
                 <div class="footer-widget">
                     <h4 class="footer-title">Quick Links</h4>
                     <ul class="footer-links">
@@ -123,12 +156,52 @@
                         <li><a href="index.html#timeline">Timeline</a></li>
                         <li><a href="city-voting.html">City Voting</a></li>
                         <li><a href="index.html#faqs">FAQs</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
                     </ul>
+                </div>
+
+                <!-- Column 3: Resources -->
+                <div class="footer-widget">
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://hitwicket.com">How to Play</a></li>
+                        <li><a href="#">Download Game (App Store)</a></li>
+                        <li><a href="#">Download Game (Play Store)</a></li>
+                        <li><a href="#">Game Support</a></li>
+                        <li><a href="https://hitwicket.com/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="https://hitwicket.com/community-guidelines">Community Guidelines</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Community -->
+                <div class="footer-widget">
+                    <h4 class="footer-title">Join Community</h4>
+                    <div class="footer-social">
+                        <a href="https://discord.gg/Ms7QRAf7" aria-label="Discord" target="_blank"><i
+                                class="fab fa-discord"></i></a>
+                        <a href="https://www.instagram.com/hitwicketsuperstars/?hl=en" aria-label="Instagram" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@HitwicketGame" aria-label="YouTube" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
+                        <a href="https://x.com/HitwicketGame" aria-label="X" target="_blank"><i
+                                class="fab fa-x"></i></a>
+                        <a href="https://chat.whatsapp.com/CcAvVUd938tBVho49pRSCA" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/HitwicketSuperstarsCricketGame/" aria-label="Facebook" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                    </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <p>&copy; 2025 Hitwicket. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="https://hitwicket.com/terms">Terms</a>
+                    <span class="separator">|</span>
+                    <a href="https://hitwicket.com/privacy-policy">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="https://hitwicket.com/community-guidelines">Community Guidelines</a>
+                </div>
+                <p class="footer-made">Made with <i class="fas fa-heart"></i> by Hitwicket Team</p>
             </div>
         </div>
     </footer>
