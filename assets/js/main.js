@@ -10,14 +10,15 @@
     // Configuration
     // ============================================
     const HPL_CONFIG = {
-        countdownTargetDate: '2025-11-17T23:59:59Z', // City Voting End Date
+        countdownTargetDate: '2025-11-20T18:00:00Z', // City Voting End Date (Nov 20, 6 PM UTC - adjust timezone as needed)
         currentPhase: 'city-voting',
         socialLinks: {
-            discord: 'https://discord.gg/hitwicket',
-            instagram: 'https://instagram.com/hitwicket',
-            youtube: 'https://www.youtube.com/@hitwicket',
-            twitter: 'https://twitter.com/hitwicket',
-            facebook: 'https://facebook.com/hitwicket'
+            discord: 'https://discord.gg/Ms7QRAf7',
+            instagram: 'https://www.instagram.com/hitwicketsuperstars/?hl=en',
+            youtube: 'https://www.youtube.com/@HitwicketGame',
+            x: 'https://x.com/HitwicketGame',
+            facebook: 'https://www.facebook.com/HitwicketSuperstarsCricketGame/',
+            whatsapp: 'https://chat.whatsapp.com/CcAvVUd938tBVho49pRSCA'
         }
     };
 
@@ -114,6 +115,63 @@
         const navLinks = $$('.nav-link');
         const backToTop = $('#backToTop');
 
+        // Handle hash fragment on page load (for cross-page navigation)
+        const handleHashOnLoad = () => {
+            const hash = window.location.hash;
+            if (hash) {
+                // Wait for page to be fully loaded and rendered
+                const scrollToHash = () => {
+                    const target = $(hash);
+                    if (target && header) {
+                        const headerHeight = header.offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        return true;
+                    }
+                    return false;
+                };
+
+                // Try immediately if DOM is ready
+                if (document.readyState === 'complete') {
+                    setTimeout(() => {
+                        if (!scrollToHash()) {
+                            // Retry after a longer delay if element not found
+                            setTimeout(scrollToHash, 300);
+                        }
+                    }, 100);
+                } else {
+                    // Wait for page to load
+                    window.addEventListener('load', () => {
+                        setTimeout(scrollToHash, 100);
+                    });
+                }
+            }
+        };
+
+        // Handle hash on initial load
+        handleHashOnLoad();
+
+        // Also handle hash changes (for same-page navigation)
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash;
+            if (hash) {
+                setTimeout(() => {
+                    const target = $(hash);
+                    if (target && header) {
+                        const headerHeight = header.offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 100);
+            }
+        });
+
         // Mobile menu toggle
         if (navToggle) {
             navToggle.addEventListener('click', () => {
@@ -132,18 +190,27 @@
                     document.body.style.overflow = '';
                 }
                 
-                // Smooth scroll for anchor links
+                // Handle cross-page navigation with hash fragments
                 const href = link.getAttribute('href');
-                if (href && href.startsWith('#')) {
-                    e.preventDefault();
-                    const target = $(href);
-                    if (target) {
-                        const headerHeight = header.offsetHeight;
-                        const targetPosition = target.offsetTop - headerHeight;
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
+                if (href && href.includes('#')) {
+                    // Check if it's a cross-page link (contains index.html or another page)
+                    if (href.includes('index.html#') || (href.includes('.html#') && !href.startsWith('#'))) {
+                        // Let the browser navigate normally, but ensure smooth scroll after load
+                        // The hash will be handled by handleHashOnLoad when the new page loads
+                        return; // Don't prevent default, let browser navigate
+                    }
+                    // Smooth scroll for same-page anchor links
+                    else if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const target = $(href);
+                        if (target) {
+                            const headerHeight = header.offsetHeight;
+                            const targetPosition = target.offsetTop - headerHeight;
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
                     }
                 }
             });
@@ -226,6 +293,58 @@
 
         window.addEventListener('scroll', handleScroll, { passive: true });
         handleScroll();
+    };
+
+    // ============================================
+    // Coming Soon Popup
+    // ============================================
+    const initComingSoonPopup = () => {
+        const popup = $('#comingSoonPopup');
+        const overlay = $('#comingSoonOverlay');
+        const closeBtn = $('#comingSoonClose');
+        const timelineCTAs = $$('.timeline-cta');
+
+        if (!popup) return;
+
+        // Function to show popup
+        const showPopup = () => {
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        // Function to hide popup
+        const hidePopup = () => {
+            popup.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        // Add click handlers to all timeline CTAs except "Vote Now"
+        timelineCTAs.forEach(cta => {
+            const href = cta.getAttribute('href');
+            // Only handle CTAs that are not "Vote Now" (which links to #city-voting)
+            if (href !== '#city-voting') {
+                cta.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPopup();
+                });
+            }
+        });
+
+        // Close popup handlers
+        if (closeBtn) {
+            closeBtn.addEventListener('click', hidePopup);
+        }
+
+        if (overlay) {
+            overlay.addEventListener('click', hidePopup);
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && popup.classList.contains('active')) {
+                hidePopup();
+            }
+        });
     };
 
     // ============================================
@@ -357,6 +476,7 @@
         initNavigation();
         updateActiveNavLink();
         initCountdown();
+        initComingSoonPopup();
         initFAQ();
         initScrollAnimations();
         initLazyLoading();

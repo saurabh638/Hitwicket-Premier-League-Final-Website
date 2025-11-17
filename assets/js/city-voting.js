@@ -13,6 +13,10 @@
         admin2: './data/admin2.json',
     };
 
+    // Voting dates (in UTC - adjust timezone as needed)
+    const VOTING_START_DATE = '2025-11-17T18:00:00Z'; // Nov 17, 6 PM UTC
+    const VOTING_END_DATE = '2025-11-20T18:00:00Z'; // Nov 20, 6 PM UTC
+
     // Get API base URL from environment or use empty string
     // You can set this in city-voting.html before loading this script:
     // <script>window.API_BASE_URL = 'https://your-api-url.com';</script>
@@ -563,11 +567,109 @@
         }
     }
 
+    // ============================================
+    // Voting Countdown Timer
+    // ============================================
+    const initVotingCountdown = () => {
+        const countdownSection = document.getElementById('votingCountdownSection');
+        const countdownStatusText = document.getElementById('countdownStatusText');
+        const daysEl = document.getElementById('countdown-days');
+        const hoursEl = document.getElementById('countdown-hours');
+        const minutesEl = document.getElementById('countdown-minutes');
+        const secondsEl = document.getElementById('countdown-seconds');
+        const inputSection = document.getElementById('inputSection');
+        const cityInput = document.getElementById('city-input');
+        const submitBtn = document.getElementById('submit-btn');
+
+        if (!countdownSection || !daysEl || !hoursEl || !minutesEl || !secondsEl) {
+            console.warn('Countdown elements not found');
+            return;
+        }
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const votingStart = new Date(VOTING_START_DATE).getTime();
+            const votingEnd = new Date(VOTING_END_DATE).getTime();
+
+            let targetTime;
+            let statusText;
+            let isVotingActive = false;
+
+            if (now < votingStart) {
+                // Before voting starts
+                targetTime = votingStart;
+                statusText = 'Voting starts in:';
+            } else if (now >= votingStart && now < votingEnd) {
+                // Voting is active
+                targetTime = votingEnd;
+                statusText = 'Voting ends in:';
+                isVotingActive = true;
+            } else {
+                // Voting has ended
+                targetTime = votingEnd;
+                statusText = 'Voting has ended';
+                if (inputSection) inputSection.classList.add('disabled');
+                if (cityInput) cityInput.disabled = true;
+                if (submitBtn) submitBtn.disabled = true;
+                return;
+            }
+
+            const distance = targetTime - now;
+
+            if (distance < 0) {
+                // Time has passed, check if we need to switch to next phase
+                if (!isVotingActive && now >= votingStart) {
+                    // Voting just started
+                    if (inputSection) inputSection.classList.remove('disabled');
+                    if (cityInput) cityInput.disabled = false;
+                    // Note: submitBtn will be enabled when a city is selected
+                    updateCountdown(); // Recursive call to update to voting end countdown
+                    return;
+                }
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysEl.textContent = String(days).padStart(2, '0');
+            hoursEl.textContent = String(hours).padStart(2, '0');
+            minutesEl.textContent = String(minutes).padStart(2, '0');
+            secondsEl.textContent = String(seconds).padStart(2, '0');
+
+            if (countdownStatusText) {
+                countdownStatusText.textContent = statusText;
+            }
+
+            // Enable/disable form based on voting status
+            if (isVotingActive) {
+                if (inputSection) inputSection.classList.remove('disabled');
+                if (cityInput) cityInput.disabled = false;
+            } else {
+                if (inputSection) inputSection.classList.add('disabled');
+                if (cityInput) cityInput.disabled = true;
+                if (submitBtn) submitBtn.disabled = true;
+            }
+        };
+
+        // Initial update
+        updateCountdown();
+
+        // Update every second
+        setInterval(updateCountdown, 1000);
+    };
+
     // Start when DOM is ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
+        document.addEventListener('DOMContentLoaded', () => {
+            init();
+            initVotingCountdown();
+        });
     } else {
         init();
+        initVotingCountdown();
     }
 })();
 
