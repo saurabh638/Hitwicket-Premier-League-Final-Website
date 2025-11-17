@@ -1,0 +1,13 @@
+{
+  "name": "hitwicket-premier-league-website",
+  "version": "1.0.0",
+  "description": "Hitwicket Premier League 2025 Website",
+  "scripts": {
+    "start": "http-server -p 8000 -c-1",
+    "dev": "http-server -p 8000 -c-1 -o"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
+
